@@ -1,0 +1,12 @@
+.row.row_margin_bottom
+  .span3
+    %h2 Questions
+  .span9.right_link
+    = link_to "New Question", new_question_path
+
+.row
+  .span12
+    = render :partial => "question_search_form"
+
+= render :partial => "question_list", :locals => { :questions => @questions }
+= will_paginate @questions

@@ -1,0 +1,6 @@
+%h2 New Question
+
+= form_for @kpi, :url => kpis_url, :method => :post do |f|
+  = render :partial => "kpi_fields", :locals => { :f => f }
+  %br
+  = f.submit "Create Kpi"

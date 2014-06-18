@@ -1,0 +1,6 @@
+%h2 New Question
+
+= form_for @question, :url => questions_url, :method => :post do |f|
+  = render :partial => "question_fields", :locals => { :f => f }
+  %br
+  = f.submit "Create Question"

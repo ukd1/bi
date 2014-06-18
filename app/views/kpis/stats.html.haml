@@ -1,0 +1,20 @@
+#kpi-stats
+  %h2 Key Performance Indicators
+  = link_to "Edit Kpis", kpis_path
+
+  .kpi-view-options
+    = form_tag request.path, :method => :get do
+      .row
+        .span4
+          %label Daily summary for
+          = select_tag(:tag, options_for_select(Kpi.tag_counts_on(:tags), params[:tag]))
+        .span8
+          %label on
+          %input{:type => 'text', :class => 'clearable datepicker', :name => "date", :value => params[:date]}
+          = submit_tag "View"
+
+  %h3 #{@tag || 'Totals'} for #{@date.to_s}
+  - if @stats && @stats.length > 0
+    = render 'kpi_table', :stats => @stats
+  - else
+    %h4 Stats haven't been calculated for #{@date.to_s}

@@ -1,0 +1,17 @@
+.tags_list
+  %ul.tags
+    - tags.sort_by! {|t| t.name}
+    - tags.each do |t|
+      %li.tag
+        = link_to t, tag_path(model, t.name)
+    - if show_add_tag
+      %li.tag.show_add_tag_form
+        %a{:href => "#"} + Add Tag
+
+- if show_add_tag
+  .span12.hidden.add_tag_form
+    = form_tag add_tag_path(model), :remote => true do
+      = text_field_tag "tag"
+      %br
+      = submit_tag "Add Tag"
+

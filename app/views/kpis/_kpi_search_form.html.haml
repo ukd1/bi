@@ -1,0 +1,4 @@
+= form_for :search, :url => search_kpis_url, :method => :get do |f|
+  = f.text_field :search_term
+  %br
+  = submit_tag('Search')

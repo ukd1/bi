@@ -1,0 +1,24 @@
+# In your data source
+#
+# For a database:
+# You need to include all required db connection options
+# as well as a "type" attribute called db
+#
+# For an API:
+# You need a "type" attribute called api
+# and you need a "class" attribute with the connection class
+
+sources:
+  db_source_1:
+    type: db
+    adapter: postgresql
+    encoding: unicode
+    database: db_name
+    pool: 5
+    host: hostname
+    username: username
+    password: password
+  api_source_2:
+    type: api
+    class: graphite
+    api_key: key_goes_here

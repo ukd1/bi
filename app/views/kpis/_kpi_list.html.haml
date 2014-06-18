@@ -1,0 +1,6 @@
+%ul.kpi_list
+  - kpis.each do |k|
+    %li
+      .row
+        .span12
+          = link_to k.name, kpi_path(k)

@@ -1,0 +1,9 @@
+%ul.question_list
+  - questions.each do |q|
+    %li
+      .row
+        .span12
+          = link_to q.name, question_path(q)
+      .row.row_margin
+        .span12
+          = q.description

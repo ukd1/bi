@@ -1,0 +1,187 @@
+// http://www.colourlovers.com/palette/443995/i_demand_a_pancake
+$light_blue: #F0F5F7;
+$dark_text: #594F4F;
+$blue_shade: #547980;
+$med_green_blue: #45ADA8;
+$light_green: #9DE0AD;
+$bright_green: #E5FCC2;
+$pct_up: green;
+$pct_down: red;
+
+@include sticky-footer(35px, "#layout", "#layout_footer", "#footer");
+
+body {
+  background: white;
+  color: $dark_text;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.container {
+  margin: 0 auto;
+  height: 100%;
+}
+
+#result_table{
+  font-size: 14px;
+  line-height: 21px;
+  table {
+    border: 1px solid $dark_text;
+    margin: 10px 0;
+  }
+  tr {
+    margin: 5px;
+    border: 1px solid $dark_text;
+    &:nth-child(even) { background-color: white; }
+    &:nth-child(odd) { background-color: $light_blue; }
+  }
+  td {
+    padding: 6px 35px 6px 6px;
+  }
+}
+
+.ace_window {
+  height: 410px;
+}
+
+#editor {
+  position: absolute;
+  width: 750px;
+  height: 400px;
+  margin: 10px 0 10px 0;
+}
+
+ul {
+  margin: 0
+}
+
+.question_description textarea {
+  width: 500px;
+  height: 100px;
+}
+
+.question_list {
+  li {
+    // margin: 10px 0 10px 0;
+    padding: 10px 0 10px 5px;
+    border-bottom: 1px solid $blue_shade;
+    &:nth-child(odd) { background-color: $light_blue; }
+  }
+  margin-bottom: 15px;
+  border: 1px solid $blue_shade;
+}
+
+.tags_list {
+  ul {
+    @include horizontal-list;
+    margin: 15px 0 15px 0;
+  }
+
+  li {
+    margin: 10px 5px 10px 0;
+  }
+
+}
+
+.tag {
+  a {
+    @include unstyled-link;
+    background: $med_green_blue;
+    color: white;
+    padding: 5px;
+    @include border-radius(5px, 5px);
+    &:hover { background: $light_green; }
+  }
+}
+
+.row_margin {
+  margin-top: 12px;
+}
+
+.row_margin_bottom {
+  margin-bottom: 12px;
+}
+
+.right_link {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage_links {
+  text-align: center;
+  padding: 35px 0;
+}
+
+.header {
+  border-bottom: 2px solid $blue_shade;
+  margin: 15px 0 15px 0;
+  padding-bottom: 3px;
+  height: 50px;
+  .nav ul {
+    text-align: right;
+    margin-top: 20px;
+  }
+}
+
+.success {
+  text-align: center;
+  background: $bright_green;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+#footer {
+  height: 35px;
+  border-top: 2px solid $blue_shade;
+}
+
+.kpi-table {
+  width: 100%;
+  font-size: 13px;
+  border: 1px solid $blue_shade;
+  th{
+    font-weight: bold;
+  }
+  tr {
+    border-bottom: 1px solid $blue_shade;
+    &:nth-child(odd) { background-color: $light_blue; }
+    td, th{
+      padding: 8px 3px;
+      text-align: center;
+      &.first_col {
+        text-align: left;
+      }
+    }
+  }
+
+  .pct_up {
+    color: $pct_up;
+  }
+  .pct_down {
+    color: $pct_down;
+  }
+}
+
+.right_border {
+  border-right: 1px solid $blue_shade;
+}
+
+.hidden {
+  display: none;
+}
+
+.graph {
+  margin: 20px 0;
+  // padding: 20px 0;
+}
+
+.graph_redraw {
+  cursor: pointer;
+}
+

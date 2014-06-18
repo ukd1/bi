@@ -1,0 +1,17 @@
+.row
+  .span12
+    %h3 Tags
+  .span12
+    = render index_tag_partial(Question, @tags)
+
+.row
+  .span12
+    = render :partial => "question_search_form"
+.row
+  .span3
+    %h3 Questions
+  .span9.right_link
+    = link_to "New Question", new_question_path
+
+= render :partial => "question_list", :locals => { :questions => @questions }
+= will_paginate @questions

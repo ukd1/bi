@@ -1,0 +1,8 @@
+%h2 Edit Kpi
+
+
+.row
+  .span12
+    = form_for @kpi, :url => kpi_url, :method => :put do |f|
+      = render :partial => "kpi_fields", :locals => { :f => f }
+      = f.submit "Edit Kpi"

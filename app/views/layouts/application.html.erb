@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BIJ</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <div id="layout">
+    <%= render :partial => "layouts/header" %>
+    <%= render :partial => "layouts/flash_message" %>
+    <%= yield %>
+    <div id="layout_footer"></div>
+  </div>
+  <div id="footer">
+    Built by Paperless Post
+  </div>
+</div>
+</body>
+<%= javascript_include_tag "application" %>
+</html>

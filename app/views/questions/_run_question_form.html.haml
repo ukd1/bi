@@ -1,0 +1,12 @@
+= form_for :inputs, :url => result_question_url(question), :method => :get do |f|
+  - question.inputs.each do |input|
+    = input
+    - if input.include?("date")
+      = f.text_field input.to_sym, :class => "datepicker"
+    - elsif input == 'group_by_range'
+      = f.select(:group_by_range,
+        options_for_select(['year', 'quarter', 'month', 'week', 'day']))
+    - else
+      = f.text_field input.to_sym
+  %br
+  = submit_tag('Get Result')

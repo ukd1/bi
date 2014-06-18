@@ -1,0 +1,36 @@
+.row
+  .span8
+    %h2 Result
+  .span4.right_link
+    = link_to "Back to Question", question_path(@question)
+
+- if @error.present?
+  .row
+    .span12
+      Error for
+      = @question.name
+
+  .row
+    .span12
+      = @error
+
+- else
+  = form_for :inputs, :url => download_result_question_url(@question), :method => :get do |f|
+    - if @inputs.present?
+      - @inputs.each do |input|
+        = f.hidden_field input[0], :value => input[1]
+    = submit_tag('Download CSV')
+
+  .row
+    .span12
+      Result for
+      = @question.name
+      = "- #{@result.count} rows"
+
+  .row
+    .span12
+      - if @result.count < 500
+        #result_table
+          = @result.to_html_table.html_safe
+      - else
+        This file has too many results to display. Please download the csv.

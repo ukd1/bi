@@ -1,0 +1,7 @@
+%h2 Edit Question
+
+.row
+  .span12
+    = form_for @question, :url => question_url, :method => :put do |f|
+      = render :partial => "question_fields", :locals => { :f => f }
+      = f.submit "Save Question"

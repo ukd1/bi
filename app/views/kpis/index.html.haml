@@ -1,0 +1,14 @@
+.row
+  .span3
+    %h3 Kpis
+  .span9.new_question_link
+    = link_to "New Kpi", new_kpi_path
+  .span12
+    = render index_tag_partial(Kpi, @tags)
+
+.row
+  .span12
+    = render :partial => "kpi_search_form"
+
+= render :partial => "kpi_list", :locals => { :kpis => @kpis }
+= will_paginate @kpis

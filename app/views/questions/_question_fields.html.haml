@@ -1,0 +1,15 @@
+= f.label :name, "Name"
+= f.text_field :name
+= f.label :description, "Description"
+.question_description= f.text_area :description
+= f.label :tag_list, "Tags (separated by commas)"
+= f.text_field :tag_list
+= f.label :data_source, "Data Source"
+= f.select(:data_source, options_for_select(data_source_options, @question.data_source))
+= f.label :question_sql
+%p Add input fields to the question by including ERB variables such as <%= start_date %> in the SQL.
+= f.text_area :question_sql, :class => "ace_text_area"
+.row.ace_window
+  .span12
+    #editor
+%br

@@ -1,0 +1,12 @@
+= f.label :name, "Name"
+= f.text_field :name
+= f.label :active, "Active"
+= f.check_box :active
+= f.label :data_source, "Data Source"
+= f.select(:data_source, options_for_select(data_source_options, @kpi.data_source))
+= f.label :query
+= f.text_area :query, :class => "ace_text_area"
+.row.ace_window
+  .span12
+    #editor
+%br

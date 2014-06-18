@@ -1,0 +1,40 @@
+.row
+  .span12
+    %h2=@kpi.name
+    %strong Last Run:
+    = @kpi.most_recent_result.date.strftime("%m/%d/%y")
+
+.row
+  .span12= render tag_partial(@kpi)
+
+.row
+  .span12
+    = link_to "Edit", edit_kpi_path(@kpi)
+    = form_tag kpi_path(@kpi), :method => :get do
+      .row
+        .span3
+          = label_tag "Start Date"
+          = text_field_tag('start_date', nil, :class => 'datepicker')
+        .span6
+          = label_tag "End Date"
+          = text_field_tag('end_date', nil, :class => 'datepicker')
+          = submit_tag "submit"
+
+.row
+  .span12
+    %h3= "Results between #{@start_date} and #{@end_date}"
+
+.row
+  .span12
+    #kpi_graph.graph
+
+.row
+  .span12
+    = render "kpi_table", :stats => @results, :show_date => true
+
+:javascript
+  window.graph_data = #{@results.to_json};
+  window.kpi_graph_name = "#{@kpi.name}";
+  window.graph_description = {
+    name: "kpi_graph"
+  };

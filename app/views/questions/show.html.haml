@@ -1,0 +1,34 @@
+.row
+  .span6
+    %h2= @question.name
+    = link_to "Edit", edit_question_path(@question)
+  .span6.right_link
+    = link_to "Back to List", questions_path
+
+.row
+  .span12= render tag_partial(@question)
+
+.row
+  .span12
+    %p
+      %strong Name:
+      = @question.name
+    %p
+      %strong Description:
+      = @question.description
+
+    %p
+      %strong Inputs:
+      = @question.inputs.join(", ")
+
+    %p
+      %strong Outputs:
+      = @question.fields.join(", ")
+
+    %p
+      %strong Data Source:
+      = @question.data_source
+
+.row.row_margin
+  .span12
+    = render :partial => "run_question_form", :locals => { :question => @question }
