@@ -175,7 +175,7 @@ A number of people contributed either code or ideas to BI
 1. [Solomon Kahn](http://www.twitter.com/solomonkahn)
 2. [Alfred Lee](http://www.twitter.com/alphrabet)
 3. [Aaron Quint](http:/www.twitter.com/aq)
-4. [Michael Hanson](http://www.twitter.com/modality)
+4. [Michael Hansen](http://www.twitter.com/modality)
 5. [Dan Schneiderman](http://www.twitter.com/hiteak)
 
 ### Contributing
