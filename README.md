@@ -77,7 +77,7 @@ setup your email smtp settings in `config/application.rb:79`
 
 ##### Set Up Data Sources
 
-Copy `config/data_sources.yml.example` to `config.data_sources.yml
+Copy `config/data_sources.yml.example` to `config/data_sources.yml`
 
 In the data_sources file, you can add two types of connections: database connections or api connections.
 
