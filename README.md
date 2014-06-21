@@ -24,7 +24,7 @@ Results are shown to the user on screen, and they can also be downloaded in csv 
 
 KPIs are queries that are run each night, and the results of those nightly queries are stored in the BI database.
 
-KPIs are the things you want to track every single day, and have an easy way to track going back in time. Kpi queries return results in a very specific format with the following fields:
+KPIs are the things you want to track every single day, and have an easy way to track going back in time. KPI queries return results in a very specific format with the following fields:
 
 `today, today % change, 7 days, 7 day % change, 30 days, 30 day % change, quarter to date, year to date`
 
@@ -50,7 +50,7 @@ Some reports that have been very useful to us are:
 
 #### *Visualizations*
 
-Visualizations are our dashboards, and plaground. Similar to Reports, they are just plain ruby classes connected to a rails view, which we use to build pretty dashboards, primarily using d3.js.
+Visualizations are our dashboards, and playground. Similar to Reports, they are just plain ruby classes connected to a rails view, which we use to build pretty dashboards, primarily using d3.js.
 
 Some examples of our visualizations are:
 
@@ -77,7 +77,7 @@ setup your email smtp settings in `config/application.rb:79`
 
 ##### Set Up Data Sources
 
-Copy `congig/data_sources.yml.example` to `config.data_sources.yml`
+Copy `config/data_sources.yml.example` to `config.data_sources.yml
 
 In the data_sources file, you can add two types of connections: database connections or api connections.
 
@@ -144,7 +144,7 @@ These take the form of SQL queries that return data in a very specific format. T
 
 `'Today', 'T7days', 'T30days', 'QTD', and 'YTD'`
 
-preferrably including all five. The data for each is saved to the BI database, for quick access later. 
+preferably including all five. The data for each is saved to the BI database, for quick access later. 
 
     BETWEEN '<%=today_start%>' AND '<%=end_date%>'
     BETWEEN '<%=seven_day_start%>' AND '<%=end_date%>'
@@ -152,21 +152,21 @@ preferrably including all five. The data for each is saved to the BI database, f
     BETWEEN '<%=quarter_start%>' AND '<%=end_date%>'
     BETWEEN '<%=year_start%>' AND '<%=end_date%>'
     
-After the initial Kpi Results are saved, another function goes through and calculates percent changes. All you need to do to get a Kpi set up and calculated forever is write the query once.
+After the initial KPI Results are saved, another function goes through and calculates percent changes. All you need to do to get a KPI set up and calculated forever is write the query once.
 
 #### Reports, Visualizations
 
 No rules here. Just don't break anything. These both work just like a normal rails view.
 
-For those unfamiliar with creating a page in rails, you should check out one of the many online rails tutorials, but here is an extremely consensed overview of what you need to do:
+For those unfamiliar with creating a page in rails, you should check out one of the many online rails tutorials, but here is an extremely condensed overview of what you need to do:
 
-add a method to `app/controllers/report_controller.rb` for the report you want, and in the controller, pass any information you want to be available in the view as a variable starting with `@`: so `@variable_name`
+Add a method to `app/controllers/report_controller.rb` for the report you want, and in the controller, pass any information you want to be available in the view as a variable starting with `@`: so `@variable_name`
 
-generally, add a class to `app/models/reports/` to create a class that will do all the calculations you want for the report.
+Generally, add a class to `app/models/reports/` to create a class that will do all the calculations you want for the report.
 
-add a file to `app/views/reports/` where the file name matches your method name
+Add a file to `app/views/reports/` where the file name matches your method name
 
-add javascript files as necessary to `app/assets/javascripts`
+Add javascript files as necessary to `app/assets/javascripts`
 
 ### Contributors
 
